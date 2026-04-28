@@ -1,176 +1,200 @@
-<!doctype html>
-<html lang="pt-BR" class="h-full">
- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Durazul Premium</title>
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-  <script src="/_sdk/element_sdk.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;family=Sora:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Durazul</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    html, body { margin: 0; padding: 0; height: 100%; box-sizing: border-box; }
-    
-    @keyframes fadeInScale { 
-      from { opacity: 0; transform: scale(0.85) rotateY(-10deg); } 
-      to { opacity: 1; transform: scale(1) rotateY(0); } 
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue-deep:   #02255e;
+      --blue-bright: #1a7cff;
+      --accent:      #00d4ff;
+      --white:       #ffffff;
+      --white-soft:  #e8f0ff;
     }
-    @keyframes pulseGlowIntense { 
-      0%, 100% { box-shadow: 0 0 30px rgba(0, 150, 255, 0.5), inset 0 0 20px rgba(0, 200, 255, 0.1); } 
-      50% { box-shadow: 0 0 50px rgba(0, 150, 255, 0.7), inset 0 0 20px rgba(0, 200, 255, 0.2); } 
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: linear-gradient(135deg, #02255e 0%, #051840 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
     }
-    @keyframes floatBounce { 
-      0%, 100% { transform: translateY(-8px); } 
-      50% { transform: translateY(8px); } 
-    }
-    @keyframes slideInUp { 
-      from { opacity: 0; transform: translateY(30px); } 
-      to { opacity: 1; transform: translateY(0); } 
-    }
-    @keyframes shimmerEffect {
-      0% { background-position: -1000px 0; }
-      100% { background-position: 1000px 0; }
-    }
-    
-    .hero-card { animation: fadeInScale 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards; perspective: 1000px; }
-    .btn-primary { animation: slideInUp 1.2s cubic-bezier(0.25, 0.8, 0.25, 1) 0.4s both; position: relative; overflow: hidden; }
-    .btn-secondary { animation: slideInUp 1.2s cubic-bezier(0.25, 0.8, 0.25, 1) 0.6s both; }
-    .float-icon { animation: floatBounce 3.2s ease-in-out infinite; }
-    .glow-btn { animation: pulseGlowIntense 2.8s ease-in-out infinite; }
-    .trust-stat { animation: slideInUp 1s cubic-bezier(0.25, 0.8, 0.25, 1) both; }
-    .trust-stat:nth-child(1) { animation-delay: 0.8s; }
-    .trust-stat:nth-child(2) { animation-delay: 1s; }
-    .trust-stat:nth-child(3) { animation-delay: 1.2s; }
-    
-    .shimmer { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); background-size: 1000px 100%; animation: shimmerEffect 3s infinite; }
-    
-    .btn-primary::before {
+
+    body::before {
       content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 0;
-      height: 0;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.3);
-      transform: translate(-50%, -50%);
-      transition: width 0.6s, height 0.6s;
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(26,124,255,.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(26,124,255,.07) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
     }
-    .btn-primary:hover::before { width: 300px; height: 300px; }
-    
-    @media (max-width: 768px) {
-      .hero-card { padding: 20px !important; }
-      .question-title { font-size: 22px !important; }
-      .question-subtitle { font-size: 13px !important; }
-      .icon-circle { width: 56px !important; height: 56px !important; }
-      .icon-circle i { width: 32px !important; height: 32px !important; }
-      .btn-primary, .btn-secondary { padding: 12px 20px !important; font-size: 14px !important; }
-      .trust-stat { font-size: 11px !important; }
-      .trust-number { font-size: 14px !important; }
+
+    .dialog {
+      background: linear-gradient(160deg, #0b2d6e, #051840);
+      border: 1px solid rgba(26,124,255,.35);
+      border-radius: 24px;
+      padding: 48px 40px 44px;
+      max-width: 520px;
+      width: 100%;
+      position: relative;
+      box-shadow:
+        0 0 60px rgba(26,124,255,.2),
+        0 40px 80px rgba(0,0,0,.5),
+        inset 0 1px 0 rgba(255,255,255,.07);
+      animation: popIn .4s cubic-bezier(.34,1.56,.64,1);
+    }
+
+    .dialog-icon {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue-bright), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin: 0 auto 24px;
+      box-shadow: 0 0 30px rgba(0,212,255,.4);
+    }
+
+    .dialog h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.9rem;
+      letter-spacing: 1.5px;
+      text-align: center;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .dialog .question {
+      text-align: center;
+      font-size: 1.05rem;
+      color: var(--white-soft);
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+
+    .options { display: flex; flex-direction: column; gap: 14px; }
+
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: rgba(255,255,255,.05);
+      border: 1.5px solid rgba(26,124,255,.3);
+      border-radius: 14px;
+      padding: 16px 20px;
+      cursor: pointer;
+      transition: all .22s;
+      text-decoration: none;
+      color: var(--white);
+    }
+    .option:hover {
+      background: rgba(26,124,255,.18);
+      border-color: var(--accent);
+      transform: translateX(4px);
+      box-shadow: 0 0 20px rgba(0,212,255,.15);
+    }
+
+    .option-num {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue-bright), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: .9rem;
+      flex-shrink: 0;
+      color: var(--blue-deep);
+    }
+
+    .option-text { flex: 1; }
+    .option-text strong {
+      display: block;
+      font-size: .97rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+    .option-text span {
+      font-size: .8rem;
+      color: rgba(255,255,255,.55);
+    }
+
+    .option-arrow {
+      font-size: 1.1rem;
+      opacity: .5;
+      transition: opacity .2s, transform .2s;
+    }
+    .option:hover .option-arrow { opacity: 1; transform: translateX(4px); }
+
+    .dialog-footer {
+      text-align: center;
+      margin-top: 24px;
+      font-size: .75rem;
+      color: rgba(255,255,255,.3);
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(.88); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    @media (max-width: 500px) {
+      .dialog { padding: 36px 22px 32px; }
     }
   </style>
-  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
- </head>
- <body class="h-full">
-  <div id="app" class="h-full w-full flex items-center justify-center p-3 md:p-4" style="background: linear-gradient(135deg, #0a1628 0%, #1a3a52 50%, #0d2d4a 100%); font-family: 'Sora', sans-serif; overflow-y: auto; overflow-x: hidden;">
-   <div id="dialog" class="hero-card w-full max-w-sm rounded-2xl md:rounded-3xl border border-blue-400/30 p-5 md:p-7 shadow-2xl" style="background: linear-gradient(165deg, rgba(10, 30, 60, 0.95) 0%, rgba(20, 60, 100, 0.85) 100%); backdrop-filter: blur(10px); position: relative; my-auto;">
-    <!-- Decorative Background Elements -->
-    <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(0, 150, 255, 0.15) 0%, transparent 70%); border-radius: 50%; pointer-events: none;"></div>
-    <div style="position: absolute; bottom: -100px; left: -50px; width: 250px; height: 250px; background: radial-gradient(circle, rgba(0, 200, 255, 0.1) 0%, transparent 70%); border-radius: 50%; pointer-events: none;"></div><!-- Header -->
-    <div class="flex justify-between items-center mb-5" style="position: relative; z-index: 10;">
-     <div class="flex items-center gap-2">
-      <span style="display: inline-block; width: 8px; height: 8px; background: #00ff88; border-radius: 50%; animation: pulse 2s infinite;"></span> <span class="badge inline-block px-3 py-1.5 rounded-full text-xs font-bold" style="background: linear-gradient(135deg, #00d4ff, #0088ff); color: white; letter-spacing: 0.5px; font-family: 'Poppins', sans-serif;">🔥 #1 EM VENDAS</span>
-     </div><a href="https://app.monetizze.com.br/r/BPE1900896" target="_blank" rel="noopener noreferrer" class="close-btn w-8 h-8 flex items-center justify-center rounded-full text-blue-300 hover:text-blue-100 hover:bg-blue-500/20 transition-all duration-300 hover:scale-125"> <i data-lucide="x" style="width:20px; height:20px;"></i> </a>
-    </div><!-- Main Icon -->
-    <div class="flex justify-center mb-4" style="position: relative; z-index: 10;">
-     <div class="icon-circle w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center float-icon glow-btn" style="background: linear-gradient(135deg, rgba(0, 200, 255, 0.25), rgba(0, 150, 255, 0.15)); border: 2px solid rgba(0, 200, 255, 0.4); box-shadow: 0 0 30px rgba(0, 150, 255, 0.3);">
-      <i data-lucide="zap" style="width:32px; height:32px; color: #00ffff;"></i>
-     </div>
-    </div><!-- Content -->
-    <h2 id="questionText" class="question-title text-center font-bold leading-tight mb-3" style="font-family: 'Poppins', sans-serif; font-size: 24px; background: linear-gradient(135deg, #00ffff, #00aaff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Quer melhorar seu desempenho?</h2>
-    <p class="question-subtitle text-center text-sm mb-5" style="color: rgba(200, 220, 255, 0.85); line-height: 1.6; font-size: 13px;">A solução premium que transformou a vida de <span style="font-weight: 700; background: linear-gradient(135deg, #00ffff, #00aaff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">+50 mil homens</span></p><!-- Buttons -->
-    <div class="space-y-2 mb-4" style="position: relative; z-index: 10;">
-     <a href="https://app.monetizze.com.br/r/BPE1900896" target="_blank" rel="noopener noreferrer" id="btnOne" class="btn-primary glow-btn block w-full text-center py-3 px-4 rounded-xl font-bold text-white text-sm transition-all duration-300 hover:brightness-110 hover:scale-105 active:scale-95" style="background: linear-gradient(135deg, #0088ff, #00ffff); box-shadow: 0 10px 30px rgba(0, 136, 255, 0.4); border: 1px solid rgba(0, 255, 255, 0.3);"> <i data-lucide="rocket" style="width: 18px; height: 18px; display: inline; margin-right: 8px;"></i> DESBLOQUEAR ACESSO </a> <a href="https://app.monetizze.com.br/r/BPE1900896" target="_blank" rel="noopener noreferrer" id="btnTwo" class="btn-secondary block w-full text-center py-2 px-4 rounded-xl font-bold text-sm transition-all duration-300 hover:scale-105 active:scale-95" style="background: rgba(0, 200, 255, 0.1); border: 2px solid rgba(0, 200, 255, 0.5); color: #00ffff; hover:background: rgba(0, 200, 255, 0.2);"> → VER DETALHES </a>
-    </div><!-- Trust Indicators -->
-    <div style="position: relative; z-index: 10; background: rgba(0, 100, 200, 0.1); border-radius: 12px; padding: 12px; border: 1px solid rgba(0, 200, 255, 0.2); margin-bottom: 12px;">
-     <div class="grid grid-cols-3 gap-2 text-center">
-      <div class="trust-stat">
-       <div class="trust-number" style="color: #00ffff; font-weight: 800; font-size: 16px; font-family: 'Poppins', sans-serif;">
-        +50K
-       </div>
-       <div style="color: rgba(150, 200, 255, 0.7); font-size: 10px; margin-top: 2px;">
-        Clientes Ativos
-       </div>
-      </div>
-      <div class="trust-stat" style="border-left: 1px solid rgba(0, 200, 255, 0.2); border-right: 1px solid rgba(0, 200, 255, 0.2);">
-       <div class="trust-number" style="color: #ffaa00; font-weight: 800; font-size: 16px; font-family: 'Poppins', sans-serif;">
-        4.9★
-       </div>
-       <div style="color: rgba(150, 200, 255, 0.7); font-size: 10px; margin-top: 2px;">
-        Avaliação
-       </div>
-      </div>
-      <div class="trust-stat">
-       <div class="trust-number" style="color: #00ff88; font-weight: 800; font-size: 16px; font-family: 'Poppins', sans-serif;">
-        30d
-       </div>
-       <div style="color: rgba(150, 200, 255, 0.7); font-size: 10px; margin-top: 2px;">
-        Garantia Total
-       </div>
-      </div>
-     </div>
-    </div><!-- Security Badge -->
-    <div style="position: relative; z-index: 10; text-center; background: rgba(0, 255, 136, 0.08); padding: 8px; border-radius: 8px; border: 1px solid rgba(0, 255, 136, 0.2);">
-     <p style="color: rgba(0, 255, 136, 0.8); font-size: 11px; margin: 0;"><i data-lucide="shield-check" style="width: 14px; height: 14px; display: inline; margin-right: 6px;"></i> 100% Seguro • Pagamento Protegido</p>
+</head>
+<body>
+
+  <div class="dialog">
+    <div class="dialog-icon">⚡</div>
+    <h2>Qual é o seu objetivo?</h2>
+    <p class="question">
+      Cada homem tem uma necessidade diferente.<br/>
+      Escolha o que mais combina com você:
+    </p>
+
+    <div class="options">
+
+      <a class="option" href="https://nutralfit.com.br/newdurazul/?mcr=BPE1900896" target="_blank" rel="noopener">
+        <div class="option-num">1</div>
+        <div class="option-text">
+          <strong>💪 Quero mais energia e disposição</strong>
+          <span>Sinto que minha vitalidade caiu e quero recuperar o pique</span>
+        </div>
+        <span class="option-arrow">→</span>
+      </a>
+
+      <a class="option" href="https://nutralfit.com.br/newdurazul/?mcr=BPE1900896" target="_blank" rel="noopener">
+        <div class="option-num">2</div>
+        <div class="option-text">
+          <strong>🔥 Quero melhorar meu desempenho sexual</strong>
+          <span>Busco mais libido, confiança e performance nos momentos íntimos</span>
+        </div>
+        <span class="option-arrow">→</span>
+      </a>
+
+      <a class="option" href="https://nutralfit.com.br/newdurazul/?mcr=BPE1900896" target="_blank" rel="noopener">
+        <div class="option-num">3</div>
+        <div class="option-text">
+          <strong>🎯 Quero os dois — energia e performance</strong>
+          <span>Busco o kit completo para resultados máximos no dia a dia</span>
+        </div>
+        <span class="option-arrow">→</span>
+      </a>
+
     </div>
-   </div>
+
+    <p class="dialog-footer">🔒 Site oficial com desconto especial garantido</p>
   </div>
-  <script>
-    lucide.createIcons();
-    const defaultConfig = {
-      dialog_question: "Quer melhorar seu desempenho?",
-      option_one: "DESBLOQUEAR ACESSO",
-      option_two: "VER DETALHES",
-      font_family: "Sora",
-      font_size: 16
-    };
-    
-    function applyConfig(config) {
-      document.getElementById('questionText').textContent = config.dialog_question || defaultConfig.dialog_question;
-      document.getElementById('btnOne').innerHTML = '<i data-lucide="rocket" style="width: 18px; height: 18px; display: inline; margin-right: 8px;"></i> ' + (config.option_one || defaultConfig.option_one);
-      document.getElementById('btnTwo').textContent = '→ ' + (config.option_two || defaultConfig.option_two);
-      
-      const font = config.font_family || defaultConfig.font_family;
-      const size = config.font_size || defaultConfig.font_size;
-      document.getElementById('app').style.fontFamily = `'${font}', sans-serif`;
-      document.getElementById('questionText').style.fontSize = `${size * 1.75}px`;
-      document.getElementById('btnOne').style.fontSize = `${size * 0.875}px`;
-      document.getElementById('btnTwo').style.fontSize = `${size * 0.825}px`;
-      
-      lucide.createIcons();
-    }
-    
-    window.elementSdk.init({
-      defaultConfig,
-      onConfigChange: async (config) => applyConfig(config),
-      mapToCapabilities: (config) => ({
-        recolorables: [],
-        borderables: [],
-        fontEditable: { 
-          get: () => config.font_family || defaultConfig.font_family, 
-          set: (v) => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); } 
-        },
-        fontSizeable: { 
-          get: () => config.font_size || defaultConfig.font_size, 
-          set: (v) => { config.font_size = v; window.elementSdk.setConfig({ font_size: v }); } 
-        }
-      }),
-      mapToEditPanelValues: (config) => new Map([
-        ["dialog_question", config.dialog_question || defaultConfig.dialog_question],
-        ["option_one", config.option_one || defaultConfig.option_one],
-        ["option_two", config.option_two || defaultConfig.option_two]
-      ])
-    });
-  </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f3611067648f450',t:'MTc3NzM3OTMwMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+
+</body>
 </html>
