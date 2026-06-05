@@ -1,208 +1,35 @@
-<!doctype html>
-<html lang="pt-BR" class="h-full">
- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Durazul - Aviso de Privacidade</title>
-  <script src="/_sdk/element_sdk.js"></script>
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&amp;family=Poppins:wght@500;600;700&amp;display=swap" rel="stylesheet">
-  <style>
-  body {
-    font-family: 'Outfit', -apple-system, sans-serif;
-  }
-  .serif-font {
-    font-family: 'Poppins', -apple-system, sans-serif;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-  }
-  
-  /* Fundo com imagem */
-  .hero-bg {
-    background-image: url('https://i.imgur.com/cIMJf5j.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-color: #1e3a5f;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  /* Blueberries decorativos */
-  .berry {
-    position: absolute;
-    border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%, #6b5b95, #2d1b4e);
-    box-shadow: 
-      inset -3px -3px 8px rgba(0,0,0,0.4),
-      inset 2px 2px 4px rgba(255,255,255,0.15),
-      0 4px 12px rgba(0,0,0,0.3);
-  }
-  
-  .berry::after {
-    content: '';
-    position: absolute;
-    top: 15%;
-    left: 25%;
-    width: 25%;
-    height: 25%;
-    background: radial-gradient(circle, rgba(255,255,255,0.4), transparent);
-    border-radius: 50%;
-  }
-  
-  /* Folhas */
-  .leaf {
-    position: absolute;
-    background: linear-gradient(135deg, #22c55e, #15803d);
-    clip-path: ellipse(50% 25% at 50% 50%);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    opacity: 0.85;
-  }
-  
-  /* Partículas de luz */
-  .sparkle {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: white;
-    border-radius: 50%;
-    opacity: 0.6;
-    animation: twinkle 3s ease-in-out infinite;
-  }
-  
-  @keyframes twinkle {
-    0%, 100% { opacity: 0.2; transform: scale(1); }
-    50% { opacity: 0.8; transform: scale(1.5); }
-  }
-  
-  /* Animação do modal */
-  @keyframes slideUp {
-    from {
-      opacity: 0;
-      transform: translateY(40px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  
-  .modal-animate {
-    animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-  
-  .backdrop-animate {
-    animation: fadeIn 0.3s ease-out forwards;
-  }
-  
-  /* Botão com efeito */
-  .btn-primary {
-    background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
-    box-shadow: 
-      0 10px 25px -5px rgba(124, 58, 237, 0.5),
-      0 0 0 1px rgba(255,255,255,0.1) inset;
-    transition: all 0.2s ease;
-  }
-  
-  .btn-primary:hover, .btn-primary:active {
-    transform: translateY(-1px);
-    box-shadow: 
-      0 15px 30px -5px rgba(124, 58, 237, 0.6),
-      0 0 0 1px rgba(255,255,255,0.2) inset;
-  }
-  
-  .btn-secondary {
-    background: white;
-    color: #4f46e5;
-    border: 1.5px solid #e0e7ff;
-    transition: all 0.2s ease;
-  }
-  
-  .btn-secondary:hover, .btn-secondary:active {
-    background: #f5f3ff;
-    border-color: #c7d2fe;
-  }
-  
-  /* Brand mark */
-  .brand-pill {
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,255,255,0.25);
-  }
-  
-  .cookie-icon-wrap {
-    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-    box-shadow: 0 8px 20px -4px rgba(251, 191, 36, 0.4);
-  }
-  
-  /* Scroll container */
-  .page-wrapper {
-    width: 100%;
-    height: 100%;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-  
-  /* Pulse suave no ícone */
-  @keyframes gentle-pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-  }
-  
-  .icon-pulse {
-    animation: gentle-pulse 2.5s ease-in-out infinite;
-  }
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Política de Privacidade</title>
+<link rel="preload" href="https://imgur.com/gvCR9BF.jpg" as="image">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#000 url('https://imgur.com/gvCR9BF.jpg') center/cover no-repeat fixed}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;padding:1rem}
+.modal{background:#fff;border-radius:16px;padding:2.5rem;max-width:420px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.4);text-align:center}
+.modal h2{font-size:1.4rem;font-weight:600;margin-bottom:1rem;color:#111}
+.modal p{font-size:.95rem;color:#444;line-height:1.6;margin-bottom:1.5rem}
+.btns{display:flex;flex-direction:column;gap:.75rem}
+.btn{display:block;padding:.85rem;border-radius:10px;text-decoration:none;font-weight:600;font-size:1rem;transition:transform .15s}
+.btn:hover{transform:scale(1.02)}
+.btn-accept{background:#10b981;color:#fff}
+.btn-decline{background:#e5e7eb;color:#333}
 </style>
-  <style>body { box-sizing: border-box; }</style>
-  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
- </head>
- <body class="h-full w-full m-0 p-0">
-  <main class="page-wrapper hero-bg">
-   <!-- Elementos decorativos de fundo (frutas e folhas) --> <!-- Overlay escurecido -->
-   <div class="fixed inset-0 bg-black/30 backdrop-animate z-20" aria-hidden="true"></div><!-- Modal de Política de Cookies -->
-   <div class="fixed inset-0 z-30 flex items-center justify-center p-4 pointer-events-none">
-    <div class="pointer-events-auto w-full max-w-xs bg-white rounded-2xl shadow-2xl modal-animate overflow-hidden" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-desc">
-     <!-- Botão Fechar (X) -->
-     <div class="absolute top-4 right-4">
-      <button onclick="window.open('https://nutralfit.com.br/newdurazul/?mcr=BPE1900896&amp;src=usr_xop0zyjt.&amp;utm_source=&amp;utm_medium=&amp;utm_campaign=&amp;utm_content=&amp;utm_term=', '_blank');" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="Fechar"> <i data-lucide="x" class="w-5 h-5"></i> </button>
-     </div><!-- Cabeçalho -->
-     <div class="px-5 pt-6 pb-2 text-center">
-      <h2 id="cookie-title" class="serif-font text-lg text-gray-900">Nós usamos cookies</h2>
-     </div><!-- Conteúdo -->
-     <div class="px-5 pb-4">
-      <p id="cookie-desc" class="text-gray-600 text-xs leading-relaxed text-center">Utilizamos cookies para melhorar sua experiência. Ao continuar, você concorda com nossa Política.</p>
-     </div><!-- Botões -->
-     <div class="px-5 pb-5 flex gap-3">
-      <button onclick="window.open('https://nutralfit.com.br/newdurazul/?mcr=BPE1900896&amp;src=usr_xop0zyjt.&amp;utm_source=&amp;utm_medium=&amp;utm_campaign=&amp;utm_content=&amp;utm_term=', '_blank');" class="btn-primary text-white font-semibold flex-1 py-2.5 rounded-lg flex items-center justify-center gap-2 text-sm"> <i data-lucide="check" class="w-4 h-4"></i> Aceitar </button> <button onclick="window.open('https://nutralfit.com.br/newdurazul/?mcr=BPE1900896&amp;src=usr_xop0zyjt.&amp;utm_source=&amp;utm_medium=&amp;utm_campaign=&amp;utm_content=&amp;utm_term=', '_blank');" class="btn-secondary font-semibold flex-1 py-2.5 rounded-lg flex items-center justify-center gap-2 text-sm"> <i data-lucide="x" class="w-4 h-4"></i> Recusar </button>
-     </div>
-    </div>
-   </div>
-  </main>
-  <script>
-  // Inicializar Element SDK
-  if (window.elementSdk) {
-    window.elementSdk.init({
-      defaultConfig: {},
-      onConfigChange: async () => {},
-      mapToCapabilities: () => ({
-        recolorables: [],
-        borderables: [],
-        fontEditable: undefined,
-        fontSizeable: undefined
-      }),
-      mapToEditPanelValues: () => new Map()
-    });
-  }
-  
-  // Inicializar ícones Lucide
-  lucide.createIcons();
-</script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f695357e3eccd4e',t:'MTc3NzkxNjc5My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</head>
+<body>
+<div class="overlay">
+<div class="modal">
+<h2>Política de Privacidade</h2>
+<p>Coletamos dados para melhorar sua experiência e não compartilhamos suas informações com terceiros. Você pode solicitar acesso ou exclusão dos seus dados a qualquer momento.</p>
+<div class="btns">
+<a href="https://app.monetizze.com.br/r/BPE1900896" class="btn btn-accept">Aceito</a>
+<a href="https://app.monetizze.com.br/r/BPE1900896" class="btn btn-decline">Não Aceito</a>
+</div>
+</div>
+</div>
+</body>
 </html>
