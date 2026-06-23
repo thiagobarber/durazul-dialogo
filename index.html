@@ -2,7 +2,8 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Essencial para mobile: diz ao navegador para ajustar a escala corretamente -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Oferta Exclusiva</title>
     <style>
         /* Configurações Resets */
@@ -10,7 +11,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
@@ -21,41 +22,32 @@
             align-items: center;
             min-height: 100vh;
             justify-content: space-between;
+            overflow-x: hidden; /* Evita rolagem lateral */
         }
 
         /* Container Principal */
         .container {
             width: 100%;
-            max-width: 500px;
-            padding: 20px;
+            max-width: 500px; /* Mantém centralizado em telas grandes */
+            padding: 15px; /* Padding menor no mobile */
             text-align: center;
         }
 
         /* Animação de Entrada (Pulo) */
         @keyframes bounceIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.3);
-            }
-            50% {
-                opacity: 1;
-                transform: scale(1.05);
-            }
-            70% {
-                transform: scale(0.9);
-            }
-            100% {
-                transform: scale(1);
-            }
+            0% { opacity: 0; transform: scale(0.3); }
+            50% { opacity: 1; transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); }
         }
 
         .animated-element {
             animation: bounceIn 0.6s ease-out both;
         }
 
-        /* Delay para criar uma sequência fluida */
+        /* Delays */
         .headline { animation-delay: 0.1s; }
-        .product-img { animation-delay: 0.2s; }
+        .product-container { animation-delay: 0.2s; } /* Animando o container da img */
         .cta-btn { animation-delay: 0.3s; }
         .badges { animation-delay: 0.4s; }
 
@@ -63,51 +55,59 @@
         .headline {
             background-color: #dc3545;
             color: #ffffff;
-            font-size: 1.3rem;
+            font-size: 1.1rem; /* Ajustado para mobile */
             font-weight: bold;
-            padding: 10px 15px;
+            padding: 12px 15px;
             border-radius: 5px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             display: inline-block;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            word-break: break-word; /* Quebra texto longo se necessário */
         }
 
-        /* Imagem do Produto */
+        /* Container da Imagem do Produto */
         .product-container {
             width: 100%;
-            max-width: 320px;
-            margin: 0 auto 25px auto;
+            max-width: 350px; /* Tamanho máximo ideal da imagem */
+            margin: 0 auto 20px auto;
+            position: relative;
         }
 
+        /* Imagem do Produto - OTIMIZAÇÃO AQUI */
         .product-img {
-            width: 100%;
-            height: auto;
+            width: 100%; /* Ocupa 100% do container */
+            height: auto; /* Mantém a proporção original */
             display: block;
             border-radius: 8px;
+            /* IMPORTANTE PARA MOBILE: evita que a imagem estique */
+            object-fit: contain;
+            /* Melhoria de renderização */
+            image-rendering: -webkit-optimize-contrast; 
         }
 
         /* Botão de Chamada para Ação (CTA) */
         .cta-btn {
             display: block;
             width: 100%;
-            background-color: #0056b3; /* Cor do CTA Azul solicitado */
+            background-color: #0056b3;
             color: #ffffff;
             text-decoration: none;
-            font-size: 1.5rem;
+            font-size: 1.2rem; /* Botão ligeiramente menor no mobile */
             font-weight: bold;
-            padding: 18px 20px;
+            padding: 20px 15px; /* Área de clique maior no mobile */
             border-radius: 8px;
             text-transform: uppercase;
             box-shadow: 0 5px 15px rgba(0, 86, 179, 0.4);
-            transition: background-color 0.2s, transform 0.2s;
-            margin-bottom: 25px;
+            transition: background-color 0.2s, transform 0.1s;
+            margin-bottom: 20px;
+            -webkit-tap-highlight-color: transparent; /* Remove cor de clique do iOS */
         }
 
-        .cta-btn:hover {
+        .cta-btn:active {
+            transform: scale(0.98); /* Feedback tátil imediato */
             background-color: #004085;
-            transform: scale(1.02);
         }
 
         /* Selos de Confiança */
@@ -115,21 +115,22 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 15px;
+            gap: 10px;
             margin-top: 10px;
+            flex-wrap: wrap;
         }
 
         .badge-item {
             display: flex;
             align-items: center;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             color: #666666;
             font-weight: 600;
         }
 
         .badge-item svg {
-            width: 18px;
-            height: 18px;
+            width: 16px;
+            height: 16px;
             fill: #28a745;
             margin-right: 5px;
         }
@@ -139,17 +140,17 @@
             width: 100%;
             background-color: #f8f9fa;
             border-top: 1px solid #eeeeee;
-            padding: 25px 20px;
+            padding: 20px 15px;
             text-align: center;
-            font-size: 0.75rem;
+            font-size: 0.65rem; /* Fonte menor no rodapé */
             color: #777777;
-            line-height: 1.6;
-            margin-top: 40px;
+            line-height: 1.5;
+            margin-top: 30px;
         }
 
         footer p {
             max-width: 600px;
-            margin: 0 auto 8px auto;
+            margin: 0 auto 5px auto;
         }
     </style>
 </head>
@@ -157,22 +158,29 @@
 
     <div class="container">
         
-        <!-- Headline com Gatilho -->
+        <!-- Headline -->
         <div class="headline animated-element">
             ⚠️ ÚLTIMAS UNIDADES EM ESTOQUE!
         </div>
 
-        <!-- Imagem do Produto Otimizada -->
-        <div class="product-container">
-            <img src="https://imgur.com/jd9CxOq.jpg" alt="Produto" class="product-img animated-element" loading="eager">
+        <!-- Imagem do Produto Otimizada com Lazy Load -->
+        <div class="product-container animated-element">
+            <img src="https://imgur.com/jd9CxOq.jpg" 
+                 alt="Produto" 
+                 class="product-img"
+                 width="1200" height="630"
+                 loading="lazy"
+                 decoding="async">
+                 <!-- 'loading="lazy"' carrega só quando aparece na tela -->
+                 <!-- 'decoding="async"' não trava o carregamento do texto -->
         </div>
 
-        <!-- Botão de Ação -->
+        <!-- Botão CTA -->
         <a href="https://nutralfit.com.br/newdurazul/?mcr=BPE1900896" class="cta-btn animated-element">
             CLIQUE AQUI PARA GARANTIR
         </a>
 
-        <!-- Certificados de Confiança -->
+        <!-- Selos de Confiança -->
         <div class="badges animated-element">
             <div class="badge-item">
                 <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
@@ -186,12 +194,11 @@
 
     </div>
 
-    <!-- Rodapé Fiscal Atualizado -->
+    <!-- Rodapé Fiscal -->
     <footer>
         <p><strong>FM SUPLEMENTOS LTDA (NUTRALFIT)</strong></p>
         <p>CNPJ: 49.998.365/0002-27</p>
         <p>© 2026 Nutralfit. Todos os direitos reservados.</p>
-        <p style="margin-top: 15px; font-size: 0.7rem; color: #a0a0a0;">Este site não é afiliado ao Facebook, Google ou a qualquer entidade das redes sociais. Todo o conteúdo e comercialização do produto são de inteira responsabilidade da empresa detentora da marca.</p>
     </footer>
 
 </body>
