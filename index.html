@@ -3,212 +3,270 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Últimas Unidades</title>
 
+<link rel="preconnect" href="https://i.imgur.com">
+<link rel="dns-prefetch" href="https://i.imgur.com">
+
+<link
+rel="preload"
+as="image"
+href="https://i.imgur.com/jd9CxOq.jpg"
+fetchpriority="high">
+
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
 }
 
 body{
-    background:#ffffff;
-    color:#1a1a1a;
+background:#fff;
+color:#111;
+overflow-x:hidden;
 }
 
 .container{
-    max-width:500px;
-    margin:0 auto;
-    padding:20px;
+max-width:500px;
+margin:auto;
+padding:20px;
 }
 
+@keyframes bounceIn{
+0%{
+opacity:0;
+transform:translateY(40px) scale(.9);
+}
+60%{
+opacity:1;
+transform:translateY(-12px) scale(1.03);
+}
+80%{
+transform:translateY(4px) scale(.98);
+}
+100%{
+opacity:1;
+transform:translateY(0) scale(1);
+}
+}
+
+.urgencia,
+.headline,
+.subheadline,
+.produto-box,
+.beneficios,
+.confianca,
+footer{
+opacity:0;
+animation:bounceIn .8s ease forwards;
+}
+
+.headline{animation-delay:.1s;}
+.subheadline{animation-delay:.2s;}
+.produto-box{animation-delay:.3s;}
+.beneficios{animation-delay:.45s;}
+.confianca{animation-delay:.6s;}
+footer{animation-delay:.75s;}
+
 .urgencia{
-    background:#ff4d4d;
-    color:#fff;
-    text-align:center;
-    padding:10px;
-    font-weight:700;
-    font-size:14px;
-    border-radius:8px;
-    margin-top:15px;
+background:#ff4d4d;
+color:#fff;
+text-align:center;
+padding:10px;
+font-size:14px;
+font-weight:700;
+border-radius:10px;
+margin-top:15px;
+box-shadow:0 5px 15px rgba(255,77,77,.25);
 }
 
 .headline{
-    text-align:center;
-    font-size:34px;
-    font-weight:800;
-    margin:25px 0 10px;
-    color:#111;
+font-size:38px;
+font-weight:900;
+text-align:center;
+margin:25px 0 10px;
+line-height:1.1;
 }
 
 .subheadline{
-    text-align:center;
-    color:#666;
-    font-size:16px;
-    margin-bottom:25px;
+text-align:center;
+font-size:16px;
+color:#666;
+margin-bottom:25px;
 }
 
 .produto-box{
-    background:#fff;
-    border-radius:20px;
-    padding:20px;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
+background:#fff;
+padding:25px;
+border-radius:20px;
+box-shadow:0 15px 40px rgba(0,0,0,.08);
 }
 
 .produto{
-    width:100%;
-    max-width:320px;
-    display:block;
-    margin:auto;
-    border-radius:12px;
+display:block;
+width:100%;
+max-width:320px;
+margin:auto;
+border-radius:15px;
 }
 
 .cta{
-    display:block;
-    width:100%;
-    text-align:center;
-    background:#0066ff;
-    color:#fff;
-    text-decoration:none;
-    padding:18px;
-    border-radius:12px;
-    font-size:20px;
-    font-weight:700;
-    margin-top:20px;
-    box-shadow:0 8px 20px rgba(0,102,255,.35);
-    transition:.2s;
+display:block;
+width:100%;
+margin-top:20px;
+padding:18px;
+text-align:center;
+text-decoration:none;
+background:#0066ff;
+color:#fff;
+font-size:20px;
+font-weight:800;
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,102,255,.35);
+transition:.2s;
 }
 
 .cta:hover{
-    transform:translateY(-2px);
+transform:translateY(-2px);
 }
 
 .beneficios{
-    margin-top:25px;
+margin-top:25px;
 }
 
 .item{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    margin:12px 0;
-    font-size:15px;
-    color:#444;
+display:flex;
+align-items:center;
+gap:10px;
+margin:12px 0;
+font-size:15px;
+color:#444;
 }
 
 .confianca{
-    margin-top:30px;
-    background:#f8f9fb;
-    border-radius:15px;
-    padding:20px;
-    text-align:center;
-    border:1px solid #ececec;
+margin-top:25px;
+background:#f8f9fb;
+border:1px solid #ececec;
+padding:20px;
+border-radius:15px;
+text-align:center;
 }
 
 .confianca h3{
-    color:#1c8b3c;
-    margin-bottom:8px;
+color:#198754;
+margin-bottom:10px;
+font-size:20px;
 }
 
 .confianca p{
-    color:#666;
-    font-size:14px;
+font-size:14px;
+color:#666;
 }
 
 .selos{
-    margin-top:15px;
-    display:flex;
-    justify-content:center;
-    gap:10px;
-    flex-wrap:wrap;
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:10px;
+margin-top:15px;
 }
 
 .selo{
-    background:#fff;
-    border:1px solid #ddd;
-    border-radius:8px;
-    padding:8px 12px;
-    font-size:13px;
-    font-weight:600;
+padding:8px 12px;
+background:#fff;
+border:1px solid #ddd;
+border-radius:8px;
+font-size:13px;
+font-weight:600;
 }
 
 footer{
-    margin-top:40px;
-    padding:25px;
-    text-align:center;
-    font-size:12px;
-    color:#777;
-    line-height:1.7;
-    border-top:1px solid #eee;
+margin-top:40px;
+padding:25px;
+text-align:center;
+font-size:12px;
+color:#777;
+line-height:1.7;
+border-top:1px solid #eee;
 }
+
 </style>
 </head>
+
 <body>
 
 <div class="container">
 
-    <div class="urgencia">
-        ⚠️ Estoque Limitado
-    </div>
+<div class="urgencia">
+⚠️ ESTOQUE LIMITADO
+</div>
 
-    <h1 class="headline">
-        Últimas Unidades
-    </h1>
+<h1 class="headline">
+Últimas Unidades
+</h1>
 
-    <p class="subheadline">
-        Aproveite enquanto ainda há disponibilidade.
-    </p>
+<p class="subheadline">
+Aproveite enquanto ainda há disponibilidade.
+</p>
 
-    <div class="produto-box">
+<div class="produto-box">
 
-        <img
-            src="https://i.imgur.com/jd9CxOq.jpg"
-            alt="Produto"
-            class="produto"
-            loading="eager"
-            fetchpriority="high"
-        >
+<img
+src="https://i.imgur.com/jd9CxOq.jpg"
+alt="Produto"
+class="produto"
+loading="eager"
+fetchpriority="high"
+decoding="async"
+width="320"
+height="320">
 
-        <a href="https://nutralfit.com.br/newdurazul/?mcr=BPE1900896" class="cta">
-            GARANTIR MINHA UNIDADE
-        </a>
+<a
+href="https://nutralfit.com.br/newdurazul/?mcr=BPE1900896"
+class="cta">
+GARANTIR MINHA UNIDADE
+</a>
 
-    </div>
+</div>
 
-    <div class="beneficios">
+<div class="beneficios">
 
-        <div class="item">✅ Compra rápida e segura</div>
-        <div class="item">✅ Ambiente protegido por SSL</div>
-        <div class="item">✅ Atendimento oficial</div>
+<div class="item">✅ Compra rápida e segura</div>
+<div class="item">✅ Site protegido por SSL</div>
+<div class="item">✅ Atendimento oficial</div>
 
-    </div>
+</div>
 
-    <div class="confianca">
+<div class="confianca">
 
-        <h3>🔒 Certificado de Confiança</h3>
+<h3>🔒 Certificado de Confiança</h3>
 
-        <p>
-            Seus dados são protegidos e transmitidos em ambiente seguro.
-        </p>
+<p>
+Seus dados são protegidos e transmitidos em ambiente seguro.
+</p>
 
-        <div class="selos">
-            <div class="selo">SSL Seguro</div>
-            <div class="selo">Site Protegido</div>
-            <div class="selo">Compra Segura</div>
-        </div>
+<div class="selos">
+<div class="selo">SSL Seguro</div>
+<div class="selo">Site Protegido</div>
+<div class="selo">Compra Segura</div>
+</div>
 
-    </div>
+</div>
 
 </div>
 
 <footer>
-    © 2026 Todos os direitos reservados.<br><br>
 
-    Este site possui caráter informativo e promocional. Os resultados podem variar de pessoa para pessoa. As informações apresentadas não substituem aconselhamento profissional.<br><br>
+© 2026 Todos os direitos reservados.<br><br>
 
-    Este site não possui vínculo com Facebook, Instagram, Google ou qualquer uma de suas empresas.
+Este site possui caráter informativo e promocional. Os resultados podem variar de pessoa para pessoa.<br><br>
+
+Este site não possui vínculo com Facebook, Instagram, Google ou qualquer outra plataforma.
+
 </footer>
 
 </body>
