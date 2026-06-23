@@ -1,273 +1,198 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oferta Exclusiva</title>
+    <style>
+        /* Configurações Resets */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
 
-<title>Últimas Unidades</title>
+        body {
+            background-color: #ffffff;
+            color: #333333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            justify-content: space-between;
+        }
 
-<link rel="preconnect" href="https://i.imgur.com">
-<link rel="dns-prefetch" href="https://i.imgur.com">
+        /* Container Principal */
+        .container {
+            width: 100%;
+            max-width: 500px;
+            padding: 20px;
+            text-align: center;
+        }
 
-<link
-rel="preload"
-as="image"
-href="https://i.imgur.com/jd9CxOq.jpg"
-fetchpriority="high">
+        /* Animação de Entrada (Pulo) */
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
 
-<style>
+        .animated-element {
+            animation: bounceIn 0.6s ease-out both;
+        }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-}
+        /* Delay para criar uma sequência fluida */
+        .headline { animation-delay: 0.1s; }
+        .product-img { animation-delay: 0.2s; }
+        .cta-btn { animation-delay: 0.3s; }
+        .badges { animation-delay: 0.4s; }
 
-body{
-background:#fff;
-color:#111;
-overflow-x:hidden;
-}
+        /* Headline */
+        .headline {
+            background-color: #dc3545;
+            color: #ffffff;
+            font-size: 1.3rem;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
 
-.container{
-max-width:500px;
-margin:auto;
-padding:20px;
-}
+        /* Imagem do Produto */
+        .product-container {
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto 25px auto;
+        }
 
-@keyframes bounceIn{
-0%{
-opacity:0;
-transform:translateY(40px) scale(.9);
-}
-60%{
-opacity:1;
-transform:translateY(-12px) scale(1.03);
-}
-80%{
-transform:translateY(4px) scale(.98);
-}
-100%{
-opacity:1;
-transform:translateY(0) scale(1);
-}
-}
+        .product-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
 
-.urgencia,
-.headline,
-.subheadline,
-.produto-box,
-.beneficios,
-.confianca,
-footer{
-opacity:0;
-animation:bounceIn .8s ease forwards;
-}
+        /* Botão de Chamada para Ação (CTA) */
+        .cta-btn {
+            display: block;
+            width: 100%;
+            background-color: #0056b3; /* Cor do CTA Azul solicitado */
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 18px 20px;
+            border-radius: 8px;
+            text-transform: uppercase;
+            box-shadow: 0 5px 15px rgba(0, 86, 179, 0.4);
+            transition: background-color 0.2s, transform 0.2s;
+            margin-bottom: 25px;
+        }
 
-.headline{animation-delay:.1s;}
-.subheadline{animation-delay:.2s;}
-.produto-box{animation-delay:.3s;}
-.beneficios{animation-delay:.45s;}
-.confianca{animation-delay:.6s;}
-footer{animation-delay:.75s;}
+        .cta-btn:hover {
+            background-color: #004085;
+            transform: scale(1.02);
+        }
 
-.urgencia{
-background:#ff4d4d;
-color:#fff;
-text-align:center;
-padding:10px;
-font-size:14px;
-font-weight:700;
-border-radius:10px;
-margin-top:15px;
-box-shadow:0 5px 15px rgba(255,77,77,.25);
-}
+        /* Selos de Confiança */
+        .badges {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
 
-.headline{
-font-size:38px;
-font-weight:900;
-text-align:center;
-margin:25px 0 10px;
-line-height:1.1;
-}
+        .badge-item {
+            display: flex;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #666666;
+            font-weight: 600;
+        }
 
-.subheadline{
-text-align:center;
-font-size:16px;
-color:#666;
-margin-bottom:25px;
-}
+        .badge-item svg {
+            width: 18px;
+            height: 18px;
+            fill: #28a745;
+            margin-right: 5px;
+        }
 
-.produto-box{
-background:#fff;
-padding:25px;
-border-radius:20px;
-box-shadow:0 15px 40px rgba(0,0,0,.08);
-}
+        /* Rodapé */
+        footer {
+            width: 100%;
+            background-color: #f8f9fa;
+            border-top: 1px solid #eeeeee;
+            padding: 25px 20px;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #777777;
+            line-height: 1.6;
+            margin-top: 40px;
+        }
 
-.produto{
-display:block;
-width:100%;
-max-width:320px;
-margin:auto;
-border-radius:15px;
-}
-
-.cta{
-display:block;
-width:100%;
-margin-top:20px;
-padding:18px;
-text-align:center;
-text-decoration:none;
-background:#0066ff;
-color:#fff;
-font-size:20px;
-font-weight:800;
-border-radius:12px;
-box-shadow:0 10px 25px rgba(0,102,255,.35);
-transition:.2s;
-}
-
-.cta:hover{
-transform:translateY(-2px);
-}
-
-.beneficios{
-margin-top:25px;
-}
-
-.item{
-display:flex;
-align-items:center;
-gap:10px;
-margin:12px 0;
-font-size:15px;
-color:#444;
-}
-
-.confianca{
-margin-top:25px;
-background:#f8f9fb;
-border:1px solid #ececec;
-padding:20px;
-border-radius:15px;
-text-align:center;
-}
-
-.confianca h3{
-color:#198754;
-margin-bottom:10px;
-font-size:20px;
-}
-
-.confianca p{
-font-size:14px;
-color:#666;
-}
-
-.selos{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:10px;
-margin-top:15px;
-}
-
-.selo{
-padding:8px 12px;
-background:#fff;
-border:1px solid #ddd;
-border-radius:8px;
-font-size:13px;
-font-weight:600;
-}
-
-footer{
-margin-top:40px;
-padding:25px;
-text-align:center;
-font-size:12px;
-color:#777;
-line-height:1.7;
-border-top:1px solid #eee;
-}
-
-</style>
+        footer p {
+            max-width: 600px;
+            margin: 0 auto 8px auto;
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="container">
+    <div class="container">
+        
+        <!-- Headline com Gatilho -->
+        <div class="headline animated-element">
+            ⚠️ ÚLTIMAS UNIDADES EM ESTOQUE!
+        </div>
 
-<div class="urgencia">
-⚠️ ESTOQUE LIMITADO
-</div>
+        <!-- Imagem do Produto Otimizada -->
+        <div class="product-container">
+            <img src="https://imgur.com/jd9CxOq.jpg" alt="Produto" class="product-img animated-element" loading="eager">
+        </div>
 
-<h1 class="headline">
-Últimas Unidades
-</h1>
+        <!-- Botão de Ação -->
+        <a href="https://nutralfit.com.br/newdurazul/?mcr=BPE1900896" class="cta-btn animated-element">
+            CLIQUE AQUI PARA GARANTIR
+        </a>
 
-<p class="subheadline">
-Aproveite enquanto ainda há disponibilidade.
-</p>
+        <!-- Certificados de Confiança -->
+        <div class="badges animated-element">
+            <div class="badge-item">
+                <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Site Seguro
+            </div>
+            <div class="badge-item">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                Privacidade Protegida
+            </div>
+        </div>
 
-<div class="produto-box">
+    </div>
 
-<img
-src="https://i.imgur.com/jd9CxOq.jpg"
-alt="Produto"
-class="produto"
-loading="eager"
-fetchpriority="high"
-decoding="async"
-width="320"
-height="320">
-
-<a
-href="https://nutralfit.com.br/newdurazul/?mcr=BPE1900896"
-class="cta">
-GARANTIR MINHA UNIDADE
-</a>
-
-</div>
-
-<div class="beneficios">
-
-<div class="item">✅ Compra rápida e segura</div>
-<div class="item">✅ Site protegido por SSL</div>
-<div class="item">✅ Atendimento oficial</div>
-
-</div>
-
-<div class="confianca">
-
-<h3>🔒 Certificado de Confiança</h3>
-
-<p>
-Seus dados são protegidos e transmitidos em ambiente seguro.
-</p>
-
-<div class="selos">
-<div class="selo">SSL Seguro</div>
-<div class="selo">Site Protegido</div>
-<div class="selo">Compra Segura</div>
-</div>
-
-</div>
-
-</div>
-
-<footer>
-
-© 2026 Todos os direitos reservados.<br><br>
-
-Este site possui caráter informativo e promocional. Os resultados podem variar de pessoa para pessoa.<br><br>
-
-Este site não possui vínculo com Facebook, Instagram, Google ou qualquer outra plataforma.
-
-</footer>
+    <!-- Rodapé Fiscal Atualizado -->
+    <footer>
+        <p><strong>FM SUPLEMENTOS LTDA (NUTRALFIT)</strong></p>
+        <p>CNPJ: 49.998.365/0002-27</p>
+        <p>© 2026 Nutralfit. Todos os direitos reservados.</p>
+        <p style="margin-top: 15px; font-size: 0.7rem; color: #a0a0a0;">Este site não é afiliado ao Facebook, Google ou a qualquer entidade das redes sociais. Todo o conteúdo e comercialização do produto são de inteira responsabilidade da empresa detentora da marca.</p>
+    </footer>
 
 </body>
 </html>
