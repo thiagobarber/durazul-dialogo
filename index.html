@@ -3,455 +3,470 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Oficial</title>
-    <!-- FontAwesome para Ícones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts para tipografia limpa -->
+    <title>DURAZUL - Site Oficial | Vitalidade e Desempenho Masculino</title>
+    <meta name="description" content="Adquira o Durazul Original pelo site oficial. Fórmula avançada para máxima disposição, energia e potência. Entrega 100% discreta e rápida para todo o Brasil.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://app.monetizze.com.br/r/BPE1900896">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="DURAZUL - Site Oficial | Vitalidade e Potência">
+    <meta property="og:description" content="Acelere seus resultados com a fórmula concentrada do Durazul. Clique e aproveite o desconto de fábrica hoje.">
+    <meta property="og:image" content="https://imgur.com/ol1sxgu.png">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
-        /* Reset e Configurações Globais */
+        :root {
+            --primary: #AAD8FF;
+            --primary-dark: #2563EB;
+            --secondary: #E4F3FF;
+            --accent: #10B981;
+            --accent-hover: #059669;
+            --dark: #0F172A;
+            --text: #334155;
+            --text-light: #64748B;
+            --white: #FFFFFF;
+            --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+            --shadow-lg: 0 25px 50px -12px rgba(37, 99, 235, 0.25);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
         }
 
         body {
-            background: linear-gradient(135deg, #A7D7FF 0%, #E1F1FF 100%);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(180deg, var(--secondary) 0%, #FFFFFF 100%);
+            color: var(--text);
+            line-height: 1.5;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            color: #1e293b;
+            justify-content: space-between;
             overflow-x: hidden;
         }
 
-        /* Animações */
-        @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes pulseGlow {
-            0% {
-                box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 15px rgba(37, 99, 235, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
-            }
-        }
-
-        @keyframes sheen {
-            0% {
-                left: -150%;
-            }
-            50% {
-                left: 150%;
-            }
-            100% {
-                left: 150%;
-            }
-        }
-
-        /* 1. Barra de Aviso Dinâmica */
-        .announcement-bar {
-            background-color: #1e3a8a;
-            color: #ffffff;
+        /* Top Bar Compliance Alert */
+        .top-bar {
+            background-color: var(--dark);
+            color: var(--white);
             text-align: center;
             padding: 10px 15px;
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            animation: slideDown 0.6s ease-out forwards;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            z-index: 10;
         }
 
-        .announcement-bar i {
-            color: #f59e0b;
+        .top-bar span {
+            background-color: #EF4444;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 800;
+            animation: pulse-red 2s infinite;
         }
 
-        /* Container Principal */
-        .container {
-            max-width: 600px;
+        /* Main Container */
+        .main-wrapper {
             width: 100%;
-            margin: 0 auto;
-            padding: 30px 20px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            animation: fadeIn 0.8s ease-out forwards;
+            max-width: 900px;
+            margin: 20px auto 40px auto;
+            padding: 0 20px;
         }
 
-        /* 2. Cabeçalho / Headline */
-        .header-section {
+        .presell-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 40px 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(170, 216, 255, 0.4);
             text-align: center;
-            margin-bottom: 25px;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .badge-verified {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: var(--secondary);
+            color: #1E40AF;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            border: 1px solid var(--primary);
         }
 
         .headline {
-            font-size: 28px;
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
             font-weight: 800;
+            color: var(--dark);
             line-height: 1.2;
-            color: #0f172a;
-            text-transform: uppercase;
+            margin-bottom: 16px;
             letter-spacing: -0.5px;
-            margin-bottom: 8px;
         }
 
         .headline span {
-            color: #2563eb; /* Azul em destaque puxado do gradiente principal */
+            color: #1D4ED8;
+            background: linear-gradient(120deg, #1D4ED8 0%, #0284C7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .sub-headline {
-            font-size: 15px;
-            color: #64748b;
+        .subheadline {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--text-light);
+            max-width: 680px;
+            margin: 0 auto 30px auto;
             font-weight: 500;
         }
 
-        /* 3. Seção do Produto */
+        /* Product Section */
         .product-section {
-            width: 100%;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
             margin-bottom: 30px;
         }
 
-        .product-image {
-            max-width: 100%;
-            height: auto;
-            max-height: 280px;
-            object-fit: contain;
-            /* Drop shadow suave para contornar a imagem sem background interno */
-            filter: drop-shadow(0 10px 20px rgba(15, 23, 42, 0.15));
+        .image-container {
+            position: relative;
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto 25px auto;
             transition: transform 0.3s ease;
         }
 
-        .product-image:hover {
-            transform: scale(1.03);
+        .image-container:hover {
+            transform: translateY(-5px);
         }
 
-        /* 4. Botão de Ação (CTA) */
-        .cta-container {
+        .product-image {
             width: 100%;
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.15));
+        }
+
+        /* Benefits List */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+            max-width: 700px;
+            margin: 0 auto 35px auto;
+            text-align: left;
+        }
+
+        .benefit-item {
             display: flex;
-            justify-content: center;
-            margin-bottom: 35px;
+            align-items: center;
+            gap: 10px;
+            background-color: #F8FAFC;
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1px solid #E2E8F0;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .benefit-icon {
+            width: 20px;
+            height: 20px;
+            fill: #10B981;
+            flex-shrink: 0;
+        }
+
+        /* CTA Button */
+        .cta-wrapper {
+            margin-bottom: 25px;
         }
 
         .cta-button {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 12px;
             width: 100%;
-            max-width: 420px;
-            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); /* Gradiente azul profissional */
-            color: #ffffff;
-            text-decoration: none;
-            padding: 18px 30px;
-            font-size: 20px;
+            max-width: 480px;
+            padding: 20px 32px;
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            color: var(--white);
+            font-size: 1.35rem;
             font-weight: 800;
+            text-decoration: none;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             text-transform: uppercase;
-            border-radius: 50px;
-            border: none;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.2s ease;
-            cursor: pointer;
-            animation: pulseGlow 2s infinite;
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+            letter-spacing: 0.5px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            animation: pulse-glow 2s infinite;
         }
 
         .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.5);
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
         }
 
-        .cta-button:active {
-            transform: translateY(1px);
+        .cta-button svg {
+            width: 26px;
+            height: 26px;
+            fill: currentColor;
         }
 
-        /* Efeito de brilho passando (Sheen Sweep) */
-        .cta-button::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -150%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(
-                90deg,
-                rgba(255, 255, 255, 0) 0%,
-                rgba(255, 255, 255, 0.4) 50%,
-                rgba(255, 255, 255, 0) 100%
-            );
-            transform: skewX(-25deg);
-            animation: sheen 4s infinite ease-in-out;
-        }
-
-        .cta-button i {
-            font-size: 18px;
-        }
-
-        /* 5. Selos de Confiança (Badges) */
-        .badges-container {
-            background-color: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            border-radius: 16px;
-            padding: 20px;
-            width: 100%;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            margin-bottom: 20px;
-        }
-
-        .badge-item {
+        /* Trust Badges */
+        .trust-badges {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .badge-icon {
-            background-color: rgba(37, 99, 235, 0.1);
-            color: #2563eb;
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            font-size: 18px;
-            margin-bottom: 8px;
-        }
-
-        .badge-text {
-            font-size: 11px;
-            font-weight: 700;
-            color: #1e293b;
-            line-height: 1.3;
-        }
-
-        /* 6. Rodapé de Compliance */
-        .footer {
-            background-color: #0f172a;
-            color: #94a3b8;
-            padding: 30px 20px;
-            font-size: 11px;
-            line-height: 1.6;
-            text-align: center;
-            border-top: 1px solid #1e293b;
-        }
-
-        .footer-grid {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr;
+            align-items: center;
+            flex-wrap: wrap;
             gap: 20px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #E2E8F0;
         }
 
-        @media (min-width: 768px) {
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-                text-align: left;
-                gap: 40px;
-            }
-        }
-
-        .footer-col-legal {
+        .trust-item {
             display: flex;
-            flex-direction: column;
-            gap: 10px;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-weight: 600;
         }
 
-        .footer-col-info {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            justify-content: space-between;
+        .trust-item svg {
+            width: 18px;
+            height: 18px;
+            fill: #64748B;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: #94A3B8;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 0.8rem;
+            margin-top: auto;
         }
 
         .footer-links {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 20px;
+            margin-bottom: 15px;
             flex-wrap: wrap;
-            margin-bottom: 10px;
-        }
-
-        @media (min-width: 768px) {
-            .footer-links {
-                justify-content: flex-start;
-            }
         }
 
         .footer-links a {
-            color: #64748b;
+            color: #94A3B8;
             text-decoration: none;
             transition: color 0.2s;
         }
 
         .footer-links a:hover {
-            color: #ffffff;
+            color: var(--white);
         }
 
-        .disclaimer {
-            color: #475569;
-            font-size: 10px;
-            border-top: 1px solid #1e293b;
-            padding-top: 15px;
-            margin-top: 20px;
-            text-align: center;
-            width: 100%;
+        .footer-disclaimer {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+            opacity: 0.7;
         }
 
-        /* Responsividade para telas menores */
-        @media (max-width: 480px) {
-            .headline {
-                font-size: 24px;
+        /* Animations */
+        @keyframes pulse-glow {
+            0% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6);
             }
-            .sub-headline {
-                font-size: 14px;
+            70% {
+                box-shadow: 0 0 0 15px rgba(16, 185, 129, 0);
             }
+            100% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+            }
+        }
+
+        @keyframes pulse-red {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        /* Responsiveness */
+        @media (max-width: 640px) {
+            .presell-card {
+                padding: 25px 18px;
+                border-radius: 18px;
+            }
+
             .cta-button {
-                font-size: 18px;
-                padding: 15px 25px;
+                font-size: 1.15rem;
+                padding: 16px 20px;
             }
-            .badges-container {
+
+            .benefits-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
-                padding: 15px;
-            }
-            .badge-item {
-                flex-direction: row;
-                text-align: left;
-                gap: 12px;
-            }
-            .badge-icon {
-                margin-bottom: 0;
-                min-width: 38px;
-                height: 38px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. Barra de Aviso Dinâmica -->
-    <div class="announcement-bar">
-        <i class="fa-solid fa-truck-fast"></i>
-        <span>ÚLTIMAS UNIDADES COM FRETE GRÁTIS E DESCONTO HOJE!</span>
-    </div>
+    <!-- Header Alert -->
+    <header class="top-bar">
+        <span>Aviso</span> Você tem direito a um desconto exclusivo ativado hoje.
+    </header>
 
-    <!-- Container Principal -->
-    <main class="container">
-        
-        <!-- 2. Cabeçalho / Headline -->
-        <header class="header-section">
-            <h1 class="headline"><span>DURAZUL</span></h1>
-            <p class="sub-headline">Clique abaixo para garantir o seu produto diretamente do distribuidor oficial.</p>
-        </header>
-
-        <!-- 3. Seção do Produto -->
-        <section class="product-section">
-            <img src="https://imgur.com/KtvitDQ.png" alt="Produto Oficial" class="product-image">
-        </section>
-
-        <!-- 4. Botão de Ação (CTA) -->
-        <div class="cta-container">
-            <a href="https://app.monetizze.com.br/r/BPE1900896" class="cta-button">
-                <span>Site Oficial</span>
-                <i class="fa-solid fa-circle-chevron-right"></i>
-            </a>
-        </div>
-
-        <!-- 5. Selos de Confiança (Badges) -->
-        <section class="badges-container">
-            <div class="badge-item">
-                <div class="badge-icon">
-                    <i class="fa-solid fa-shield-halved"></i>
-                </div>
-                <span class="badge-text">Ambiente Seguro</span>
+    <!-- Main Content -->
+    <main class="main-wrapper">
+        <article class="presell-card">
+            
+            <!-- Badge -->
+            <div class="badge-verified">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+                SITE OFICIAL REGISTRADO
             </div>
-            <div class="badge-item">
-                <div class="badge-icon">
-                    <i class="fa-solid fa-award"></i>
-                </div>
-                <span class="badge-text">Garantia Oficial</span>
-            </div>
-            <div class="badge-item">
-                <div class="badge-icon">
-                    <i class="fa-solid fa-bolt"></i>
-                </div>
-                <span class="badge-text">Entrega Rápida</span>
-            </div>
-        </section>
 
+            <!-- Headline -->
+            <h1 class="headline">
+                Recupere Sua Vitalidade, Disposição e <span>Máxima Potência</span> com Durazul
+            </h1>
+
+            <!-- Subheadline -->
+            <p class="subheadline">
+                A fórmula natural e concentrada desenvolvida para homens que buscam alto desempenho, energia inabalável e confiança renovada.
+            </p>
+
+            <!-- Product Image -->
+            <div class="product-section">
+                <div class="image-container">
+                    <img src="https://imgur.com/ol1sxgu.png" alt="Frasco do Durazul Estimulante Natural" class="product-image" loading="eager" width="320" height="320">
+                </div>
+            </div>
+
+            <!-- Bullet Points -->
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <svg class="benefit-icon" viewBox="0 0 20 20">
+                        <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                    </svg>
+                    Ação Rápida e Duradoura
+                </div>
+                <div class="benefit-item">
+                    <svg class="benefit-icon" viewBox="0 0 20 20">
+                        <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                    </svg>
+                    Fórmula 100% Natural e Segura
+                </div>
+                <div class="benefit-item">
+                    <svg class="benefit-icon" viewBox="0 0 20 20">
+                        <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                    </svg>
+                    Mais Disposição e Energia
+                </div>
+                <div class="benefit-item">
+                    <svg class="benefit-icon" viewBox="0 0 20 20">
+                        <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                    </svg>
+                    Entrega Discreta em Todo o Brasil
+                </div>
+            </div>
+
+            <!-- CTA Area -->
+            <div class="cta-wrapper">
+                <a href="https://app.monetizze.com.br/r/BPE1900896" class="cta-button">
+                    <span>Quero Meu Durazul</span>
+                    <svg viewBox="0 0 24 24">
+                        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Trust Badges -->
+            <div class="trust-badges">
+                <div class="trust-item">
+                    <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-5.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                    Compra 100% Segura
+                </div>
+                <div class="trust-item">
+                    <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+                    Envio Discreto
+                </div>
+                <div class="trust-item">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    Garantia de Qualidade
+                </div>
+            </div>
+
+        </article>
     </main>
 
-    <!-- 6. Rodapé de Compliance -->
-    <footer class="footer">
-        <div class="footer-grid">
-            <!-- Coluna 1: Termos de Propriedade -->
-            <div class="footer-col-legal">
-                <p>
-                    Todo o conteúdo do site, todas as fotos, imagens, logotipos, marcas, layout, aqui veiculados são de propriedade exclusiva. É vedada qualquer reprodução, total ou parcial, de qualquer elemento de identidade, sem expressa autorização. A violação de qualquer direito mencionado implicará na responsabilização cível e criminal nos termos da Lei.
-                </p>
-            </div>
-            <!-- Coluna 2: Links, CNPJ e Informações adicionais -->
-            <div class="footer-col-info">
-                <div class="footer-links">
-                    <a href="#" target="_blank">Termos de Uso</a>
-                    <a href="#" target="_blank">Políticas de Privacidade</a>
-                </div>
-                <p>
-                    © 2026 Distribuidor Autorizado. Todos os direitos reservados.<br>
-                    Este site não possui vínculo direto com marcas terceiras não licenciadas.
-                </p>
-            </div>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="https://app.monetizze.com.br/r/BPE1900896">Termos de Uso</a>
+            <a href="https://app.monetizze.com.br/r/BPE1900896">Política de Privacidade</a>
+            <a href="https://app.monetizze.com.br/r/BPE1900896">Rastreio de Pedido</a>
         </div>
-        <!-- Isenção para aprovação rápida (Google/Meta Ads) -->
-        <div class="disclaimer">
-            Este site não é afiliado ao Facebook, Google ou a qualquer entidade de rede social. Depois que você sair do Facebook ou do Google, a responsabilidade não é deles, mas sim do nosso site. Fazemos todos os esforços para indicar claramente e mostrar provas reais do produto.
-        </div>
+        <p class="footer-disclaimer">
+            Este site não é afiliado ao Google ou a qualquer entidade do Google. Os resultados podem variar de pessoa para pessoa. As informações fornecidas neste site destinam-se exclusivamente ao seu conhecimento geral e não substituem o aconselhamento médico profissional.<br>
+            © <script>document.write(new Date().getFullYear())</script> DURAZUL - Todos os direitos reservados.
+        </p>
     </footer>
 
-  <script defer src="https://presellfuga.lovable.app/tracker.js?site=33430a70-355b-44c0-9107-4c6549dbd275"></script>
+    <script>
+        // Smooth click routing optimization
+        document.querySelectorAll('a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                // Tracking or performance metrics can be attached here if needed
+            });
+        });
+    </script>
+<!-- PresellPulse tracking -->
+<script>
+(function(){
+  var SITE_ID="ac6f17fb-d159-4ece-bd24-3700c3a4c5a7";
+  var ENDPOINT="https://fuga-presell.lovable.app/api/public/track";
+  var SK="__pp_s_"+SITE_ID, VK="__pp_v_"+SITE_ID;
+  function uid(){try{return crypto.randomUUID();}catch(e){return String(Math.random()).slice(2)+Date.now();}}
+  function sid(){try{var r=sessionStorage.getItem(SK);if(r)return r;var s=uid();sessionStorage.setItem(SK,s);return s;}catch(e){return uid();}}
+  function vid(){try{var v=localStorage.getItem(VK);if(v)return v;var n=uid();localStorage.setItem(VK,n);return n;}catch(e){return null;}}
+  var S=sid(),V=vid(),T0=Date.now(),MAX=0;
+  var qp=new URLSearchParams(location.search);
+  function base(){return{site_id:SITE_ID,session_id:S,visitor_id:V,url:location.href,path:location.pathname,referrer:document.referrer||null,utm_source:qp.get("utm_source"),utm_medium:qp.get("utm_medium"),utm_campaign:qp.get("utm_campaign"),utm_term:qp.get("utm_term"),utm_content:qp.get("utm_content"),screen_width:window.innerWidth};}
+  function send(b){try{var p=JSON.stringify(b);if(navigator.sendBeacon){navigator.sendBeacon(ENDPOINT,new Blob([p],{type:"text/plain"}));return;}}catch(e){}try{fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"text/plain"},body:JSON.stringify(b),keepalive:true,mode:"no-cors"});}catch(e){}}
+  send(Object.assign({event_type:"pageview"},base()));
+  function upd(){var h=document.documentElement,t=window.pageYOffset||h.scrollTop,H=(h.scrollHeight||0)-window.innerHeight;if(H<=0)return;var p=Math.min(100,Math.round(t/H*100));if(p>MAX)MAX=p;}
+  window.addEventListener("scroll",upd,{passive:true});
+  document.addEventListener("click",function(e){var el=e.target;while(el&&el!==document.body){var tn=el.tagName;if(tn==="A"||tn==="BUTTON"||(el.getAttribute&&el.getAttribute("data-cta"))){var tx=(el.innerText||el.textContent||"").trim().slice(0,140);var hr=el.getAttribute&&el.getAttribute("href");var tg=el.getAttribute&&el.getAttribute("data-cta");send(Object.assign({event_type:"cta_click",cta_text:tx,cta_href:hr,cta_tag:tg},base()));return;}el=el.parentElement;}},true);
+  var sent=false;
+  function eng(){if(sent)return;sent=true;upd();send(Object.assign({event_type:"engagement",scroll_depth:MAX,time_on_page:Math.round((Date.now()-T0)/1000)},base()));}
+  document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")eng();});
+  window.addEventListener("pagehide",eng);
+})();
+</script>
+<!-- /PresellPulse -->
 </body>
 </html>
