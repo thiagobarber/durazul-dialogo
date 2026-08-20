@@ -1,472 +1,101 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt" >
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DURAZUL - Site Oficial | Vitalidade e Desempenho Masculino</title>
-    <meta name="description" content="Adquira o Durazul Original pelo site oficial. Fórmula avançada para máxima disposição, energia e potência. Entrega 100% discreta e rápida para todo o Brasil.">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://app.monetizze.com.br/r/BPE1900896">
-    
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="DURAZUL - Site Oficial | Vitalidade e Potência">
-    <meta property="og:description" content="Acelere seus resultados com a fórmula concentrada do Durazul. Clique e aproveite o desconto de fábrica hoje.">
-    <meta property="og:image" content="https://imgur.com/ol1sxgu.png">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <title>Special Access</title>
     <style>
-        :root {
-            --primary: #AAD8FF;
-            --primary-dark: #2563EB;
-            --secondary: #E4F3FF;
-            --accent: #10B981;
-            --accent-hover: #059669;
-            --dark: #0F172A;
-            --text: #334155;
-            --text-light: #64748B;
-            --white: #FFFFFF;
-            --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
-            --shadow-lg: 0 25px 50px -12px rgba(37, 99, 235, 0.25);
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', -apple-system, sans-serif; }
+        body, html { height: 100%; width: 100%; overflow: hidden; background: #0d1117; color: #fff; }
+        
+        .bg-container { position: absolute; top:0; left:0; width:100%; height:100%; z-index:1; filter: blur(8px) brightness(0.35); transform: scale(1.05); }
+        .bg-iframe { width:100%; height:100%; border:none; pointer-events:none; }
+        .overlay { position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(10, 15, 30, 0.75); z-index:2; }
+        .modal-wrapper { position: absolute; top:0; left:0; width:100%; height:100%; z-index:3; display:flex; align-items:center; justify-content:center; padding:20px; }
+        
+        .modal-card { width:100%; max-width:500px; background: #1c0d11; border:1px solid rgba(255,255,255,0.12); border-radius:16px; box-shadow:0 25px 50px -12px rgba(0,0,0,0.8); position:relative; padding:32px 28px; }
+        .close-btn { position:absolute; top:16px; right:20px; font-size:24px; font-weight:bold; color: rgba(255,255,255,0.5); text-decoration:none; line-height:1; }
+        .close-btn:hover { color:#fff; }
+        
+        .modal-title { font-size:22px; font-weight:700; color:#fff; line-height:1.3; margin-bottom:8px; }
+        .modal-subtitle { font-size:14px; color: rgba(255,255,255,0.7); line-height:1.5; margin-bottom:20px; }
+        .footer-text { text-align:center; font-size:12px; color: rgba(255,255,255,0.6); margin-top:16px; }
+        
+        .badge { display:inline-block; background: #cb066322; color: #cb0663; border:1px solid #cb066366; font-size:11px; font-weight:700; text-transform:uppercase; padding:4px 10px; border-radius:20px; margin-bottom:12px; }
+
+        .cta-btn { display:block; width:100%; background: #cb0663; color:#fff; text-align:center; padding:16px; font-size:15px; font-weight:700; text-decoration:none; border-radius:10px; text-transform:uppercase; box-shadow: 0 4px 14px #cb066366; transition: transform 0.2s, filter 0.2s; }
+        .cta-btn:hover { filter: brightness(1.15); transform: translateY(-1px); }
+
+        /* Layout Promoção */
+        .layout-promo .promo-header-badge { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+        .layout-promo .promo-header-badge .badge { margin-bottom: 0; }
+        .layout-promo .tag-limited { font-size: 11px; font-weight: 700; background: rgba(239, 68, 68, 0.2); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.4); padding: 4px 8px; border-radius: 6px; text-transform: uppercase; }
+        .layout-promo .promo-box { display: block; background: rgba(255,255,255,0.05); border: 2px dashed #cb0663; border-radius: 12px; padding: 16px; text-align: center; text-decoration: none; margin-bottom: 20px; }
+        .layout-promo .promo-box-text { color: #fff; font-size: 15px; font-weight: 700; }
+        .layout-promo .pulse { animation: pulseBtn 2s infinite; }
+        @keyframes pulseBtn {
+            0% { box-shadow: 0 0 0 0 #cb066388; }
+            70% { box-shadow: 0 0 0 14px rgba(0, 0, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); }
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* Layout Idioma */
+        .layout-lang .lang-option { background: rgba(255,255,255,0.06); border:2px solid #cb0663; border-radius:10px; padding:14px 16px; display:flex; align-items:center; justify-content:space-between; text-decoration:none; color:#fff; margin-bottom:12px; font-size:14px; font-weight:700; }
+        .layout-lang .active-dot { color: #cb0663; font-size:18px; }
+        .layout-lang .lang-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:8px; margin-bottom:18px; }
+        .layout-lang .lang-option-pill { background: rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.15); border-radius:8px; padding:10px 4px; text-align:center; text-decoration:none; color: rgba(255,255,255,0.7); font-size:12px; font-weight:600; transition:all 0.2s; }
+        .layout-lang .lang-option-pill:hover { border-color: #cb0663; color:#fff; }
 
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background: linear-gradient(180deg, var(--secondary) 0%, #FFFFFF 100%);
-            color: var(--text);
-            line-height: 1.5;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            overflow-x: hidden;
-        }
+        /* Layout País */
+        .layout-country .country-option { background: rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.15); border-radius:10px; padding:14px 16px; display:flex; align-items:center; justify-content:space-between; text-decoration:none; color:#fff; margin-bottom:12px; font-size:14px; font-weight:600; }
+        .layout-country .main-opt { border: 2px solid #cb0663; }
+        .layout-country .status-tag { font-size:11px; background: #cb0663; color:#fff; padding:3px 8px; border-radius:6px; font-weight:700; }
 
-        /* Top Bar Compliance Alert */
-        .top-bar {
-            background-color: var(--dark);
-            color: var(--white);
-            text-align: center;
-            padding: 10px 15px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
+        /* Layout Idade */
+        .layout-age { text-align: center; border-top: 4px solid #cb0663; }
+        .layout-age .warning-icon { font-size: 40px; margin-bottom: 10px; }
+        .layout-age .btn-group { display: flex; gap: 10px; margin-top: 10px; }
+        .layout-age .btn-no { display:block; width:100%; background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.7); text-align:center; padding:16px; font-size:13px; font-weight:700; text-decoration:none; border-radius:10px; border:1px solid rgba(255,255,255,0.15); }
 
-        .top-bar span {
-            background-color: #EF4444;
-            color: white;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            font-weight: 800;
-            animation: pulse-red 2s infinite;
-        }
+        /* Layout Cookies */
+        .layout-cookies { max-width: 550px; }
+        .layout-cookies .cookies-header { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 16px; }
+        .layout-cookies .shield-icon { font-size: 32px; background: #cb066322; padding: 10px; border-radius: 12px; }
 
-        /* Main Container */
-        .main-wrapper {
-            width: 100%;
-            max-width: 900px;
-            margin: 20px auto 40px auto;
-            padding: 0 20px;
-        }
+        /* Layout Gênero */
+        .layout-gender { text-align: center; }
+        .layout-gender .gender-grid { display: flex; gap: 12px; margin-bottom: 12px; }
+        .layout-gender .gender-card { flex: 1; text-decoration: none; }
+        .layout-gender .gender-btn { background: rgba(255,255,255,0.06); border: 2px solid rgba(255,255,255,0.15); padding: 20px 10px; border-radius: 12px; color: #fff; font-size: 14px; font-weight: 700; transition: all 0.2s; }
+        .layout-gender .gender-card:hover .gender-btn { border-color: #cb0663; background: #cb066322; }
 
-        .presell-card {
-            background: var(--white);
-            border-radius: 24px;
-            padding: 40px 30px;
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(170, 216, 255, 0.4);
-            text-align: center;
-            position: relative;
-            backdrop-filter: blur(10px);
-        }
-
-        .badge-verified {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background-color: var(--secondary);
-            color: #1E40AF;
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 0.875rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            border: 1px solid var(--primary);
-        }
-
-        .headline {
-            font-size: clamp(1.75rem, 4vw, 2.5rem);
-            font-weight: 800;
-            color: var(--dark);
-            line-height: 1.2;
-            margin-bottom: 16px;
-            letter-spacing: -0.5px;
-        }
-
-        .headline span {
-            color: #1D4ED8;
-            background: linear-gradient(120deg, #1D4ED8 0%, #0284C7 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .subheadline {
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            color: var(--text-light);
-            max-width: 680px;
-            margin: 0 auto 30px auto;
-            font-weight: 500;
-        }
-
-        /* Product Section */
-        .product-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 30px;
-        }
-
-        .image-container {
-            position: relative;
-            width: 100%;
-            max-width: 320px;
-            margin: 0 auto 25px auto;
-            transition: transform 0.3s ease;
-        }
-
-        .image-container:hover {
-            transform: translateY(-5px);
-        }
-
-        .product-image {
-            width: 100%;
-            height: auto;
-            display: block;
-            filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.15));
-        }
-
-        /* Benefits List */
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 12px;
-            max-width: 700px;
-            margin: 0 auto 35px auto;
-            text-align: left;
-        }
-
-        .benefit-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background-color: #F8FAFC;
-            padding: 12px 16px;
-            border-radius: 12px;
-            border: 1px solid #E2E8F0;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--dark);
-        }
-
-        .benefit-icon {
-            width: 20px;
-            height: 20px;
-            fill: #10B981;
-            flex-shrink: 0;
-        }
-
-        /* CTA Button */
-        .cta-wrapper {
-            margin-bottom: 25px;
-        }
-
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            width: 100%;
-            max-width: 480px;
-            padding: 20px 32px;
-            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
-            color: var(--white);
-            font-size: 1.35rem;
-            font-weight: 800;
-            text-decoration: none;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            animation: pulse-glow 2s infinite;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.5);
-            background: linear-gradient(135deg, #059669 0%, #047857 100%);
-        }
-
-        .cta-button svg {
-            width: 26px;
-            height: 26px;
-            fill: currentColor;
-        }
-
-        /* Trust Badges */
-        .trust-badges {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #E2E8F0;
-        }
-
-        .trust-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.8rem;
-            color: var(--text-light);
-            font-weight: 600;
-        }
-
-        .trust-item svg {
-            width: 18px;
-            height: 18px;
-            fill: #64748B;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: #94A3B8;
-            padding: 40px 20px;
-            text-align: center;
-            font-size: 0.8rem;
-            margin-top: auto;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: #94A3B8;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .footer-links a:hover {
-            color: var(--white);
-        }
-
-        .footer-disclaimer {
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.6;
-            opacity: 0.7;
-        }
-
-        /* Animations */
-        @keyframes pulse-glow {
-            0% {
-                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6);
-            }
-            70% {
-                box-shadow: 0 0 0 15px rgba(16, 185, 129, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
-            }
-        }
-
-        @keyframes pulse-red {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.6; }
-        }
-
-        /* Responsiveness */
-        @media (max-width: 640px) {
-            .presell-card {
-                padding: 25px 18px;
-                border-radius: 18px;
-            }
-
-            .cta-button {
-                font-size: 1.15rem;
-                padding: 16px 20px;
-            }
-
-            .benefits-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+        *[dir="rtl"] { direction: rtl; text-align: right; }
+        *[dir="rtl"] .close-btn { right: auto; left: 20px; }
+        *[dir="rtl"] .footer-text, *[dir="rtl"] .layout-age, *[dir="rtl"] .layout-gender, *[dir="rtl"] .layout-promo { text-align: center; }
     </style>
 </head>
 <body>
-
-    <!-- Header Alert -->
-    <header class="top-bar">
-        <span>Aviso</span> Você tem direito a um desconto exclusivo ativado hoje.
-    </header>
-
-    <!-- Main Content -->
-    <main class="main-wrapper">
-        <article class="presell-card">
-            
-            <!-- Badge -->
-            <div class="badge-verified">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                </svg>
-                SITE OFICIAL REGISTRADO
-            </div>
-
-            <!-- Headline -->
-            <h1 class="headline">
-                Recupere Sua Vitalidade, Disposição e <span>Máxima Potência</span> com Durazul
-            </h1>
-
-            <!-- Subheadline -->
-            <p class="subheadline">
-                A fórmula natural e concentrada desenvolvida para homens que buscam alto desempenho, energia inabalável e confiança renovada.
-            </p>
-
-            <!-- Product Image -->
-            <div class="product-section">
-                <div class="image-container">
-                    <img src="https://imgur.com/ol1sxgu.png" alt="Frasco do Durazul Estimulante Natural" class="product-image" loading="eager" width="320" height="320">
+    <div class="bg-container"><iframe class="bg-iframe" src="https://kiwify.app/GYxTFI0?afid=PcganrLj"></iframe></div>
+    <div class="overlay"></div>
+    <div class="modal-wrapper">
+        
+                <div class="modal-card layout-promo" >
+                    <a href="https://kiwify.app/GYxTFI0?afid=PcganrLj" class="close-btn">&times;</a>
+                    <div class="promo-header-badge">
+                        <span class="badge badge-glow">Promoção Especial Desbloqueada</span>
+                        <span class="tag-limited">Vagas Limitadas</span>
+                    </div>
+                    <h1 class="modal-title">Resgate seu Desconto Exclusivo</h1>
+                    <p class="modal-subtitle">Um valor promocional temporário foi liberado para o seu acesso. Garanta antes do término.</p>
+                    
+                    <a href="https://kiwify.app/GYxTFI0?afid=PcganrLj" class="promo-box">
+                        <div class="promo-box-text">🔥 Até 70% de Desconto Aplicado</div>
+                    </a>
+                    
+                    <a href="https://kiwify.app/GYxTFI0?afid=PcganrLj" class="cta-btn pulse">RESGATAR DESCONTO AGORA »</a>
+                    <div class="footer-text">✓ Compra 100% Segura • Garantia de Satisfação</div>
                 </div>
-            </div>
-
-            <!-- Bullet Points -->
-            <div class="benefits-grid">
-                <div class="benefit-item">
-                    <svg class="benefit-icon" viewBox="0 0 20 20">
-                        <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                    </svg>
-                    Ação Rápida e Duradoura
-                </div>
-                <div class="benefit-item">
-                    <svg class="benefit-icon" viewBox="0 0 20 20">
-                        <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                    </svg>
-                    Fórmula 100% Natural e Segura
-                </div>
-                <div class="benefit-item">
-                    <svg class="benefit-icon" viewBox="0 0 20 20">
-                        <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                    </svg>
-                    Mais Disposição e Energia
-                </div>
-                <div class="benefit-item">
-                    <svg class="benefit-icon" viewBox="0 0 20 20">
-                        <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                    </svg>
-                    Entrega Discreta em Todo o Brasil
-                </div>
-            </div>
-
-            <!-- CTA Area -->
-            <div class="cta-wrapper">
-                <a href="https://app.monetizze.com.br/r/BPE1900896" class="cta-button">
-                    <span>Quero Meu Durazul</span>
-                    <svg viewBox="0 0 24 24">
-                        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </a>
-            </div>
-
-            <!-- Trust Badges -->
-            <div class="trust-badges">
-                <div class="trust-item">
-                    <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-5.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-                    Compra 100% Segura
-                </div>
-                <div class="trust-item">
-                    <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
-                    Envio Discreto
-                </div>
-                <div class="trust-item">
-                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-                    Garantia de Qualidade
-                </div>
-            </div>
-
-        </article>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-links">
-            <a href="https://app.monetizze.com.br/r/BPE1900896">Termos de Uso</a>
-            <a href="https://app.monetizze.com.br/r/BPE1900896">Política de Privacidade</a>
-            <a href="https://app.monetizze.com.br/r/BPE1900896">Rastreio de Pedido</a>
-        </div>
-        <p class="footer-disclaimer">
-            Este site não é afiliado ao Google ou a qualquer entidade do Google. Os resultados podem variar de pessoa para pessoa. As informações fornecidas neste site destinam-se exclusivamente ao seu conhecimento geral e não substituem o aconselhamento médico profissional.<br>
-            © <script>document.write(new Date().getFullYear())</script> DURAZUL - Todos os direitos reservados.
-        </p>
-    </footer>
-
-    <script>
-        // Smooth click routing optimization
-        document.querySelectorAll('a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                // Tracking or performance metrics can be attached here if needed
-            });
-        });
-    </script>
-<!-- PresellPulse tracking -->
-<script>
-(function(){
-  var SITE_ID="ac6f17fb-d159-4ece-bd24-3700c3a4c5a7";
-  var ENDPOINT="https://fuga-presell.lovable.app/api/public/track";
-  var SK="__pp_s_"+SITE_ID, VK="__pp_v_"+SITE_ID;
-  function uid(){try{return crypto.randomUUID();}catch(e){return String(Math.random()).slice(2)+Date.now();}}
-  function sid(){try{var r=sessionStorage.getItem(SK);if(r)return r;var s=uid();sessionStorage.setItem(SK,s);return s;}catch(e){return uid();}}
-  function vid(){try{var v=localStorage.getItem(VK);if(v)return v;var n=uid();localStorage.setItem(VK,n);return n;}catch(e){return null;}}
-  var S=sid(),V=vid(),T0=Date.now(),MAX=0;
-  var qp=new URLSearchParams(location.search);
-  function base(){return{site_id:SITE_ID,session_id:S,visitor_id:V,url:location.href,path:location.pathname,referrer:document.referrer||null,utm_source:qp.get("utm_source"),utm_medium:qp.get("utm_medium"),utm_campaign:qp.get("utm_campaign"),utm_term:qp.get("utm_term"),utm_content:qp.get("utm_content"),screen_width:window.innerWidth};}
-  function send(b){try{var p=JSON.stringify(b);if(navigator.sendBeacon){navigator.sendBeacon(ENDPOINT,new Blob([p],{type:"text/plain"}));return;}}catch(e){}try{fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"text/plain"},body:JSON.stringify(b),keepalive:true,mode:"no-cors"});}catch(e){}}
-  send(Object.assign({event_type:"pageview"},base()));
-  function upd(){var h=document.documentElement,t=window.pageYOffset||h.scrollTop,H=(h.scrollHeight||0)-window.innerHeight;if(H<=0)return;var p=Math.min(100,Math.round(t/H*100));if(p>MAX)MAX=p;}
-  window.addEventListener("scroll",upd,{passive:true});
-  document.addEventListener("click",function(e){var el=e.target;while(el&&el!==document.body){var tn=el.tagName;if(tn==="A"||tn==="BUTTON"||(el.getAttribute&&el.getAttribute("data-cta"))){var tx=(el.innerText||el.textContent||"").trim().slice(0,140);var hr=el.getAttribute&&el.getAttribute("href");var tg=el.getAttribute&&el.getAttribute("data-cta");send(Object.assign({event_type:"cta_click",cta_text:tx,cta_href:hr,cta_tag:tg},base()));return;}el=el.parentElement;}},true);
-  var sent=false;
-  function eng(){if(sent)return;sent=true;upd();send(Object.assign({event_type:"engagement",scroll_depth:MAX,time_on_page:Math.round((Date.now()-T0)/1000)},base()));}
-  document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")eng();});
-  window.addEventListener("pagehide",eng);
-})();
-</script>
-<!-- /PresellPulse -->
+    </div>
+  <script defer src="https://presellfuga.lovable.app/tracker.js?site=8e706779-1efb-404a-ab01-c424e7ce0136"></script>
 </body>
 </html>
