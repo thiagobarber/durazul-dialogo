@@ -1,101 +1,181 @@
 <!DOCTYPE html>
-<html lang="pt" >
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Special Access</title>
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', -apple-system, sans-serif; }
-        body, html { height: 100%; width: 100%; overflow: hidden; background: #0d1117; color: #fff; }
-        
-        .bg-container { position: absolute; top:0; left:0; width:100%; height:100%; z-index:1; filter: blur(8px) brightness(0.35); transform: scale(1.05); }
-        .bg-iframe { width:100%; height:100%; border:none; pointer-events:none; }
-        .overlay { position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(10, 15, 30, 0.75); z-index:2; }
-        .modal-wrapper { position: absolute; top:0; left:0; width:100%; height:100%; z-index:3; display:flex; align-items:center; justify-content:center; padding:20px; }
-        
-        .modal-card { width:100%; max-width:500px; background: #1c0d11; border:1px solid rgba(255,255,255,0.12); border-radius:16px; box-shadow:0 25px 50px -12px rgba(0,0,0,0.8); position:relative; padding:32px 28px; }
-        .close-btn { position:absolute; top:16px; right:20px; font-size:24px; font-weight:bold; color: rgba(255,255,255,0.5); text-decoration:none; line-height:1; }
-        .close-btn:hover { color:#fff; }
-        
-        .modal-title { font-size:22px; font-weight:700; color:#fff; line-height:1.3; margin-bottom:8px; }
-        .modal-subtitle { font-size:14px; color: rgba(255,255,255,0.7); line-height:1.5; margin-bottom:20px; }
-        .footer-text { text-align:center; font-size:12px; color: rgba(255,255,255,0.6); margin-top:16px; }
-        
-        .badge { display:inline-block; background: #cb066322; color: #cb0663; border:1px solid #cb066366; font-size:11px; font-weight:700; text-transform:uppercase; padding:4px 10px; border-radius:20px; margin-bottom:12px; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oferta Especial</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        .cta-btn { display:block; width:100%; background: #cb0663; color:#fff; text-align:center; padding:16px; font-size:15px; font-weight:700; text-decoration:none; border-radius:10px; text-transform:uppercase; box-shadow: 0 4px 14px #cb066366; transition: transform 0.2s, filter 0.2s; }
-        .cta-btn:hover { filter: brightness(1.15); transform: translateY(-1px); }
+    body, html {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
 
-        /* Layout Promoção */
-        .layout-promo .promo-header-badge { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
-        .layout-promo .promo-header-badge .badge { margin-bottom: 0; }
-        .layout-promo .tag-limited { font-size: 11px; font-weight: 700; background: rgba(239, 68, 68, 0.2); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.4); padding: 4px 8px; border-radius: 6px; text-transform: uppercase; }
-        .layout-promo .promo-box { display: block; background: rgba(255,255,255,0.05); border: 2px dashed #cb0663; border-radius: 12px; padding: 16px; text-align: center; text-decoration: none; margin-bottom: 20px; }
-        .layout-promo .promo-box-text { color: #fff; font-size: 15px; font-weight: 700; }
-        .layout-promo .pulse { animation: pulseBtn 2s infinite; }
-        @keyframes pulseBtn {
-            0% { box-shadow: 0 0 0 0 #cb066388; }
-            70% { box-shadow: 0 0 0 14px rgba(0, 0, 0, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); }
-        }
+    /* Iframe com a página de fundo */
+    #background-frame {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      z-index: 1;
+    }
 
-        /* Layout Idioma */
-        .layout-lang .lang-option { background: rgba(255,255,255,0.06); border:2px solid #cb0663; border-radius:10px; padding:14px 16px; display:flex; align-items:center; justify-content:space-between; text-decoration:none; color:#fff; margin-bottom:12px; font-size:14px; font-weight:700; }
-        .layout-lang .active-dot { color: #cb0663; font-size:18px; }
-        .layout-lang .lang-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:8px; margin-bottom:18px; }
-        .layout-lang .lang-option-pill { background: rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.15); border-radius:8px; padding:10px 4px; text-align:center; text-decoration:none; color: rgba(255,255,255,0.7); font-size:12px; font-weight:600; transition:all 0.2s; }
-        .layout-lang .lang-option-pill:hover { border-color: #cb0663; color:#fff; }
+    /* Overlay escuro semi-transparente para dar foco ao modal */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 20px;
+    }
 
-        /* Layout País */
-        .layout-country .country-option { background: rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.15); border-radius:10px; padding:14px 16px; display:flex; align-items:center; justify-content:space-between; text-decoration:none; color:#fff; margin-bottom:12px; font-size:14px; font-weight:600; }
-        .layout-country .main-opt { border: 2px solid #cb0663; }
-        .layout-country .status-tag { font-size:11px; background: #cb0663; color:#fff; padding:3px 8px; border-radius:6px; font-weight:700; }
+    /* Caixa do Modal */
+    .modal-card {
+      position: relative;
+      background: #ffffff;
+      color: #1a1a1a;
+      width: 100%;
+      max-width: 440px;
+      padding: 36px 28px 28px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+      animation: popIn 0.3s ease-out;
+    }
 
-        /* Layout Idade */
-        .layout-age { text-align: center; border-top: 4px solid #cb0663; }
-        .layout-age .warning-icon { font-size: 40px; margin-bottom: 10px; }
-        .layout-age .btn-group { display: flex; gap: 10px; margin-top: 10px; }
-        .layout-age .btn-no { display:block; width:100%; background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.7); text-align:center; padding:16px; font-size:13px; font-weight:700; text-decoration:none; border-radius:10px; border:1px solid rgba(255,255,255,0.15); }
+    @keyframes popIn {
+      from {
+        opacity: 0;
+        transform: scale(0.92);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
 
-        /* Layout Cookies */
-        .layout-cookies { max-width: 550px; }
-        .layout-cookies .cookies-header { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 16px; }
-        .layout-cookies .shield-icon { font-size: 32px; background: #cb066322; padding: 10px; border-radius: 12px; }
+    /* Botão de Fechar ("X") */
+    .close-btn {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      font-weight: 600;
+      color: #888888;
+      cursor: pointer;
+      line-height: 1;
+      transition: color 0.2s ease;
+    }
 
-        /* Layout Gênero */
-        .layout-gender { text-align: center; }
-        .layout-gender .gender-grid { display: flex; gap: 12px; margin-bottom: 12px; }
-        .layout-gender .gender-card { flex: 1; text-decoration: none; }
-        .layout-gender .gender-btn { background: rgba(255,255,255,0.06); border: 2px solid rgba(255,255,255,0.15); padding: 20px 10px; border-radius: 12px; color: #fff; font-size: 14px; font-weight: 700; transition: all 0.2s; }
-        .layout-gender .gender-card:hover .gender-btn { border-color: #cb0663; background: #cb066322; }
+    .close-btn:hover {
+      color: #111111;
+    }
 
-        *[dir="rtl"] { direction: rtl; text-align: right; }
-        *[dir="rtl"] .close-btn { right: auto; left: 20px; }
-        *[dir="rtl"] .footer-text, *[dir="rtl"] .layout-age, *[dir="rtl"] .layout-gender, *[dir="rtl"] .layout-promo { text-align: center; }
-    </style>
+    /* Tag de destaque */
+    .badge {
+      display: inline-block;
+      background: #eef2ff;
+      color: #4f46e5;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 6px 12px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+
+    .modal-title {
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 12px;
+      color: #111827;
+    }
+
+    .modal-desc {
+      font-size: 15px;
+      color: #4b5563;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+
+    /* Botão de Ação (CTA) */
+    .cta-btn {
+      display: block;
+      width: 100%;
+      background: #10b981;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 16px 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+      transition: background 0.2s ease, transform 0.1s ease;
+    }
+
+    .cta-btn:hover {
+      background: #059669;
+      transform: translateY(-1px);
+    }
+
+    .cta-btn:active {
+      transform: translateY(1px);
+    }
+
+    .secure-text {
+      margin-top: 14px;
+      font-size: 12px;
+      color: #9ca3af;
+    }
+  </style>
 </head>
 <body>
-    <div class="bg-container"><iframe class="bg-iframe" src="https://kiwify.app/GYxTFI0?afid=PcganrLj"></iframe></div>
-    <div class="overlay"></div>
-    <div class="modal-wrapper">
-        
-                <div class="modal-card layout-promo" >
-                    <a href="https://kiwify.app/GYxTFI0?afid=PcganrLj" class="close-btn">&times;</a>
-                    <div class="promo-header-badge">
-                        <span class="badge badge-glow">Promoção Especial Desbloqueada</span>
-                        <span class="tag-limited">Vagas Limitadas</span>
-                    </div>
-                    <h1 class="modal-title">Resgate seu Desconto Exclusivo</h1>
-                    <p class="modal-subtitle">Um valor promocional temporário foi liberado para o seu acesso. Garanta antes do término.</p>
-                    
-                    <a href="https://kiwify.app/GYxTFI0?afid=PcganrLj" class="promo-box">
-                        <div class="promo-box-text">🔥 Até 70% de Desconto Aplicado</div>
-                    </a>
-                    
-                    <a href="https://kiwify.app/GYxTFI0?afid=PcganrLj" class="cta-btn pulse">RESGATAR DESCONTO AGORA »</a>
-                    <div class="footer-text">✓ Compra 100% Segura • Garantia de Satisfação</div>
-                </div>
+
+  <!-- Página de fundo -->
+  <iframe id="background-frame" src="https://kiwify.app/GYxTFI0?afid=PcganrLj"></iframe>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="modalOffer">
+    <div class="modal-card">
+      <button class="close-btn" onclick="closeModal()" aria-label="Fechar">✕</button>
+      
+      <span class="badge">Oportunidade Exclusiva</span>
+      <h2 class="modal-title">Espere! Liberamos um Desconto Especial Para Você</h2>
+      <p class="modal-desc">Garanta seu acesso agora com uma condição exclusiva por tempo limitado antes que as vagas encerrem.</p>
+      
+      <a href="https://kiwify.app/GYxTFI0?afid=PcganrLj" class="cta-btn">
+        QUERO APROVEITAR O DESCONTO AGORA
+      </a>
+
+      <p class="secure-text">🔒 Compra 100% Segura e Acesso Imediato</p>
     </div>
-  <script defer src="https://presellfuga.lovable.app/tracker.js?site=8e706779-1efb-404a-ab01-c424e7ce0136"></script>
+  </div>
+
+  <script>
+    function closeModal() {
+      document.getElementById('modalOffer').style.display = 'none';
+    }
+  </script>
+
 </body>
 </html>
